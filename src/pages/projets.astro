@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+const projets = [
+  {
+    titre: "Atlas Vault",
+    description: "Vault Obsidian structuré avec RAG local, hooks Claude Code, et skills personnalisés pour une productivité augmentée.",
+    tags: ["Obsidian", "Python", "Qdrant", "Claude Code"],
+    lien: null,
+  },
+  {
+    titre: "Task Board",
+    description: "Interface web Next.js pour gérer des tâches stockées en Markdown. Accessible sur iPhone via Tailscale.",
+    tags: ["Next.js", "TypeScript", "Tailwind", "Tailscale"],
+    lien: null,
+  },
+  {
+    titre: "RAG Pipeline",
+    description: "Pipeline d'indexation et de recherche sémantique sur le vault Atlas avec Qdrant et nomic-embed-text.",
+    tags: ["Python", "Qdrant", "Ollama", "launchd"],
+    lien: null,
+  },
+]
+---
+<Layout title="Projets">
+  <h1 class="text-4xl font-bold mb-3">Projets</h1>
+  <p class="text-gray-400 mb-12">Ce que je construis avec Claude Code.</p>
+
+  <div class="grid gap-6">
+    {projets.map(p => (
+      <div class="border border-gray-800 rounded-xl p-6 hover:border-gray-600 transition">
+        <h2 class="text-xl font-semibold mb-2">{p.titre}</h2>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">{p.description}</p>
+        <div class="flex flex-wrap gap-2">
+          {p.tags.map(tag => (
+            <span class="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full font-mono">{tag}</span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</Layout>
